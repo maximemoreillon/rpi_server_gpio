@@ -21,15 +21,19 @@ black_button_longpress = LongPress(BUTTON_BLACK_PIN, black_button_interrupt)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
-# Turn led ON
-GPIO.output(LED_PIN,GPIO.HIGH)
 
-
-
-# Main code: Nothing
+# Main code: LED heartbeat
 try:
 	while True:
-		time.sleep(60)
+		GPIO.output(LED_PIN,GPIO.HIGH)
+		time.sleep(0.1)
+		GPIO.output(LED_PIN,GPIO.LOW)
+		time.sleep(0.1)
+		GPIO.output(LED_PIN,GPIO.HIGH)
+		time.sleep(0.1)
+		GPIO.output(LED_PIN,GPIO.LOW)
+		time.sleep(2)
+
 
 
 # Cleanup if script exits
